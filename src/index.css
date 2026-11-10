@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-stone-100 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-stone-50 dark:ring-offset-stone-900;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-stone-200 bg-white p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition
+      active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-stone-950 hover:bg-amber-400;
+  }
+  .btn-ghost {
+    @apply btn bg-stone-100 text-stone-700 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-200 dark:hover:bg-stone-700;
+  }
+  .btn-danger {
+    @apply btn bg-red-50 text-red-700 hover:bg-red-100 dark:bg-red-950/50 dark:text-red-300 dark:hover:bg-red-900/50;
+  }
+  .icon-btn {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-full text-stone-500 transition hover:bg-stone-100
+      hover:text-stone-800 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-100;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-300;
+  }
+
+  /* Rendered markdown */
+  .md-content {
+    @apply space-y-2 break-words text-[15px] leading-relaxed;
+  }
+  .md-content h1 { @apply text-xl font-semibold; }
+  .md-content h2 { @apply text-lg font-semibold; }
+  .md-content h3 { @apply font-semibold; }
+  .md-content ul { @apply list-disc space-y-1 pl-5; }
+  .md-content ol { @apply list-decimal space-y-1 pl-5; }
+  .md-content blockquote { @apply border-l-4 border-amber-300 pl-3 italic text-stone-600 dark:text-stone-400; }
+  .md-content code { @apply rounded bg-stone-100 px-1 py-0.5 font-mono text-[13px] dark:bg-stone-800; }
+  .md-content pre { @apply overflow-x-auto rounded-lg bg-stone-100 p-3 dark:bg-stone-800; }
+  .md-content pre code { @apply bg-transparent p-0; }
+  .md-content a { @apply text-amber-700 underline dark:text-amber-400; }
+  .md-content hr { @apply border-stone-200 dark:border-stone-700; }
+  .md-content input[type='checkbox'] { @apply mr-1 accent-amber-500; }
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
